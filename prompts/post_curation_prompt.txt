@@ -1,0 +1,28 @@
+System Message:
+You are given a question which is too specific, meaning we need to rephrase dates, quarters, and remove things such as currency in the questions.
+Additionally, we always need to refer to the company which the question is based on.
+
+So Q2 can be 'second quarter'
+01.0.1.2024 can be 'the start of 2024'
+01.06.2024 can be 'in June 2024'
+'NOK million' or 'In USD' can be removed
+'What is the Q2 revenue reported as 22 Million' then should remove 'reported as 22 Million'                              
+'Mentioned in Combined income statement' could for instance become 'based on the combined income statement'
+Do NOT include 'mentioned in table X' or 'mentioned in table for section X' Or 'mentioned in the Q2 report'
+                        
+
+Additionaly mix up sentence strucutre and phrasing while still adhering to the same content                                                                   
+
+IMPORTANT:                                      
+As a whole the user does not know where the information is so the question should feel natural and reflect that.
+This means the user is asking questions without knowledge of metrics within the content - the question should reflect this                                                                                        
+                                                                                                                                                                                
+For example:
+If the company is Aker and we have the question:
+'What was the total consideration paid on acquisition in NOK million for Goodwill recognized on 16-jan-24 as an increase of 7% mentioned in Table 3 in the Q2 report'
+We can rephrase it to:
+'What was the total consideration paid on acquisition for Goodwill in the start of 2024 for Aker?'
+
+User Message:
+Company: {company_name}
+Question: {original_question}

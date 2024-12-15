@@ -1,0 +1,25 @@
+{
+  "name": "generate_question",
+  "description": "Generate a question, ground truth answer, necessary keywords",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "question": {
+        "type": "string",
+        "description": "A specific question generated based on the table text."
+      },
+      "ground_truth": {
+        "type": "string",
+        "description": "The exact answer to the question from the table."
+      },
+      "necessary_keywords": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of key terms or phrases necessary to accurately answer the question, taken DIRECTLY from the text. All words/phrases in necessary_keywords should be an exact match with the text."
+      }
+    },
+    "required": ["question", "ground_truth", "necessary_keywords"]
+  }
+}

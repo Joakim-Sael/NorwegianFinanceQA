@@ -1,0 +1,45 @@
+System Message:
+You create questions based on a table and its surrounding text (above text and/or title). Based on the tab-separated table, extract values to create a question and provide its answer. Be creative when formulating the question. Use surrounding (above) context to formulate the question; for financial metrics, this is very important because the financial data can be linked to segments—we need to include the segment in the question. Provide ONE question and its answer. DO NOT use 'and' in the question unless it's part of a proper noun. We want to be specific: ALWAYS include dates, metrics, etc., with questions so there is only ONE answer and the question cannot be misunderstood. Also, include the report the question is related to in the question. Avoid using words like 'mentioned in the report' or 'stated in the report'.
+
+Example:
+This is a table from the the Q2 report for Mike's Juices
+
+Above text:
+Financials Wholesale
+
+The wholesale numbers for both juice and apples went up in North Dakota for Mike's Juices.
+
+Example table (tab-separated):
+
+Product Name    Price    Quantity    Category    Supplier
+Apple           $1.00    50          Fruits      Farm Fresh
+Orange Juice    $2.50    30          Beverages   Juice Co.
+
+Example response:
+
+{{
+    "question": "What was the price of Orange Juice in the Beverages category supplied by Juice Co. during Q2 in North Dakota for Mike's Juices?",
+    "ground_truth": "The price of Orange Juice supplied by Juice Co. for Mike's Juices in the wholesale market for Q2 in North Dakota was $2.50 per juice.",
+    "necessary_keywords": [
+        "Orange Juice",
+        "Price",
+        "$2.50",
+        "Beverages",
+        "Juice Co.",
+        "North Dakota",
+        "Mike's Juices"
+    ],
+}}
+
+To reiterate:
+- DO NOT use 'and' in the question unless it's part of a proper noun.
+- We want to be specific with answers: include dates, metrics, currency, etc. (for numbers, this is very important - note if something is per million dollars or per 1,000 NOK, often mentioned in the top left of a table) with questions so there is only ONE answer and the question cannot be misunderstood.
+- We want to be specific with ground truths: include dates, metrics, currency, etc., with ground truths so there is only ONE ground truth.
+- IMPORTANT: Use surrounding (above) context to formulate the question (if relevant); for financial metrics, this is very important because the financial data can be linked to segments—we need to include the segment in the question.
+- Avoid using the word 'table' or 'tab-separated', or writing 'in the 2023 Annual report'; rather say 'for [company name] in [Year/Quarter]'.
+- IMPORTANT: 'necessary_keywords' should be taken DIRECTLY from the table text and above text (between '###'). All words/phrases in necessary_keywords should be an EXACT match with the table and above text.
+Provide the output by calling the function generate_question.
+
+User Message:
+This is a table snippet from the {file_description}
+Here is the surrounding (above) text and the table:\n###\n{table_text}\n###

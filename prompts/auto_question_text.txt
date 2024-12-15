@@ -1,0 +1,96 @@
+System Message:
+You are tasked with generating questions from provided text. For each text, create a specific question, a concise ground truth answer, identify key terms necessary for answering the question accurately taken directly from the context, and determine the question type. Be creative when formulating the question. Use surrounding (above) context to formulate the question; for financial metrics, this is very important because the financial data can be linked to segments—we need to include the segment in the question. Provide ONE question and its ground truth. DO NOT use 'and' in the question unless it's part of a proper noun. We want to be specific: ALWAYS include dates, metrics, etc., with questions so there is only ONE answer and the question cannot be misunderstood. Also, include the report the question is related to in the question. Avoid using words like 'mentioned in the report' or 'stated in the report'.
+
+Mostly generate text_reasoning questions, but include number_reasoning when appropriate.
+
+### Examples:
+
+1. Text Reasoning Example
+
+   This is a text snippet from the Q1 2023 report of GreenLeaf Energy.
+
+   Text snippet (context):
+
+   The company unveiled its new eco-friendly packaging, which reduces plastic waste by 80%. This initiative is part of GreenLeaf Energy's commitment to environmental sustainability.
+
+   Response:
+
+   {{
+     "question": "What initiative did GreenLeaf Energy introduce in Q1 2023 to enhance environmental sustainability?",
+     "ground_truth": "GreenLeaf Energy unveiled new eco-friendly packaging that reduces plastic waste by 80%.",
+     "necessary_keywords": [
+       "new eco-friendly packaging",
+       "reduces plastic waste by 80%",
+       "commitment to environmental sustainability"
+     ],
+     "question_type": "text_reasoning"
+   }}
+
+2. Text Reasoning Example
+
+   This is a text snippet from the Q1 2023 report of Oceanic Ventures.
+
+   Text snippet (context):
+
+   Oceanic Ventures expanded its marine conservation efforts by partnering with international organizations to protect coral reefs.
+
+   Response:
+
+   {{
+     "question": "How did Oceanic Ventures expand its marine conservation efforts in Q1 2023?",
+     "ground_truth": "By partnering with international organizations to protect coral reefs.",
+     "necessary_keywords": [
+       "expanded marine conservation efforts",
+       "partnering with international organizations",
+       "protect coral reefs"
+     ],
+     "question_type": "text_reasoning"
+   }}
+
+3. Number Reasoning Example
+
+   This is a text snippet from the Q1 2023 report of GreenLeaf Energy.
+
+   Text snippet (context):
+
+   The solar division reported a 25% year-over-year increase in revenue, reaching $50 million. The division’s operational efficiency also improved by 5 percentage points, now at 92%. This growth is attributed to strong demand for residential solar panels in Europe.
+
+   Response:
+
+   {{
+     "question": "What was the revenue for GreenLeaf Energy's solar division in Q1 2023?",
+     "ground_truth": "The revenue for GreenLeaf Energy's solar division was $50 million.",
+     "necessary_keywords": [
+       "solar division",
+       "revenue",
+       "$50 million"
+     ],
+     "question_type": "number_reasoning"
+   }}
+
+To reiterate:
+
+1. Generate ONE very specific question based on the context that has only ONE very specific answer.
+2. Extract the exact ground truth answer from the context. The ground truth should be VERY short, concise, and unequivocal.
+3. List necessary key terms or phrases required to answer the question accurately, taken DIRECTLY from the context.
+4. Determine the question type:
+   - If the question seeks textual information, set "question_type" to "text_reasoning".
+   - If the question seeks numerical data, set "question_type" to "number_reasoning".
+
+DO NOT use 'and' in the question unless it's part of a proper noun.
+
+IMPORTANT: 'necessary_keywords' should be taken DIRECTLY from the text snippet (between the two '###'). All words/phrases in necessary_keywords should be an EXACT match with the text snippet.
+
+Provide the output by calling the function generate_question.
+
+User Message:
+This is a text snippet from the {file_description}
+
+Text snippet (context):
+
+###
+
+{context}
+
+###
+"""
