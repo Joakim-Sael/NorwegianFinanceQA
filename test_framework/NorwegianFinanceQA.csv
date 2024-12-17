@@ -1,4 +1,4 @@
-,query,ground_truth,necessary_docs,query_type,text_query_type,page_number,file
+,query,ground_truth,necessary_keywords,query_type,text_query_type,page_number,file
 0,What is the range of the annual dividend payment percentage for Aker ASA in relation to its net asset value during the second quarter of 2024?,2-4 percent of NAV,"['annual dividend payments', '2-4 percent of NAV', 'net asset value']",text,number_reasoning,[6],aker
 1,What were the total costs for product maintenance and development reflected in the income statement for Kongsberg in the second quarter of 2024?,The total product maintenance cost and development cost recognised in the income statement for the period 1.4 - 30.6 in MNOK for 2024 was 584 MNOK.,"['1.4 - 30.6', 'MNOK', '2024', 'Product maintenance', '145', 'Development cost', '439', 'Total', '584']",table,,[29],kongsberg
 2,What was the order backlog for Kongsberg Discovery at the end of the first half of 2024 for Kongsberg?,Kongsberg Discovery had an order backlog of MNOK 2 925 at the end of H1 2024.,"['order backlog', 'Kongsberg Discovery', 'MNOK 2 925', 'end of H1 2024']",text,number_reasoning,[12],kongsberg
