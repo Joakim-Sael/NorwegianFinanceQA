@@ -23,4 +23,4 @@
 
 -   **File**: The source file from which the question was derived.
 
-For additional details on the creation process or guidance on using the necessary_keywords for retrieval metrics, please refer to the thesis, which can be accessed at: PENDING.
+For additional details on the creation process or guidance on using the necessary_keywords for retrieval metrics, please refer to the thesis, which can be accessed [HERE](https://openaccess.nhh.no/nhh-xmlui/bitstream/handle/11250/3178510/no.nhh%3awiseflow%3a7200393%3a61696255.pdf?sequence=1&isAllowed=y).
